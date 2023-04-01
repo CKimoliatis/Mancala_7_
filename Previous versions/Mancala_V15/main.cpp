@@ -46,6 +46,7 @@ int main() {
         displayLeaderboard();
         gameLoop(board, username);
         user.setUserScore(board.returnPlayer1Score(), board.returnPlayer2Score());
+        board.printBoard();
     }
     return 0;
 }
@@ -106,12 +107,14 @@ void gameLoop(Board &board, string username) {
 
         if (playerTurn == 1) {
             int play, marbles;
-            board.printBoard();
+
             cout << endl;
             cout << username << "'s Turn. Enter a number 1 - 6 (L to R)" << endl;
+            board.printBoard();
+            cout << endl;
             //cin>>play;
             play = (rand() % 6) + 1;
-            
+
             int currCell = play + 1;
             board.playerOneMove(currCell, play, marbles);
             currCell--; //Back off one to check if capture or go again
@@ -119,12 +122,14 @@ void gameLoop(Board &board, string username) {
             board.checkOneMove(currCell, playerTurn);
         } else {
             int play, marbles;
-            board.printBoard();
+
             cout << endl;
             cout << "Player 2's Turn. Enter a number 1 - 6 (L to R)" << endl;
+            board.printBoard();
+            cout << endl;
             play = (rand() % 6) + 1;
-            cout << "Player 2 Selected Cell "<<play<<endl<<endl;
-            
+            cout << "Player 2 Selected Cell " << play << endl << endl;
+
             play = 14 - play;
             int currCell = play + 1;
             board.playerTwoMove(currCell, play, marbles);
@@ -132,7 +137,5 @@ void gameLoop(Board &board, string username) {
 
             board.checkTwoMove(currCell, playerTurn);
         }
-        cout << endl;
-        board.printBoard();
     }
 }

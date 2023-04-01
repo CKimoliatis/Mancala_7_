@@ -99,10 +99,18 @@ class Board{
     }
     
     int returnPlayer1Score(){
+        cells[7] += cells[1] + cells[2] + cells[3] + cells[4] + cells[5] + cells[6];
+        for (int i = 1; i <= 6; i++) {
+            cells[i] = 0;
+        }
         return cells[7];
     }
     
     int returnPlayer2Score(){
+        cells[14] += cells[13] + cells[12] + cells[11] + cells[10] + cells[9] + cells[8];
+        for (int j = 8; j <= 13; j++) {
+            cells[j] = 0;
+        }
         return cells[14];
     }
 };
