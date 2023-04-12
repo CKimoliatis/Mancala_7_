@@ -5,6 +5,7 @@
 #include <string>
 #include <iomanip>
 #include <ctime>
+#include <cstring>
 using namespace std;
 
 #ifndef BOARD_H_
