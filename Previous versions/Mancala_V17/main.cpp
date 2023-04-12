@@ -48,6 +48,8 @@ int main() {
         displayLeaderboard();
         gameLoop(board, username);
         user.setUserScore(board.returnPlayer1Score(), board.returnPlayer2Score());
+        cout << endl << endl << "Final Gameboard" << endl << endl;
+        board.printBoard();
     }
 }
 
@@ -124,7 +126,7 @@ void gameLoop(Board &board, string username) {
             cout << endl;
             cout << "Player 2's Turn. Enter a number 1 - 6 (L to R)" << endl;
             play = (rand() % 6) + 1;
-            cout << "Player 2 Selected Cell "<<play<<endl<<endl;
+//            cout << "Player 2 Selected Cell "<<play<<endl<<endl;
             
             play = 14 - play;
             int currCell = play + 1;
